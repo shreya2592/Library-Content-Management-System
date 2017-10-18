@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<images>
+	<image name="1.jpg" order="1" />
+	<image name="2.jpg" order="2" />
+	<image name="3.jpg" order="3" />
+	<image name="4.jpg" order="4" />
+	<image name="5.jpg" order="5" />
+	<image name="6.jpg" order="6" />
+	<image name="7.jpg" order="7" />
+	<image name="8.jpg" order="8" />
+	<image name="9.jpg" order="9" />
+	<image name="10.jpg" order="9" />
+
+</images>
