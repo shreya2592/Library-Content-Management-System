@@ -1,0 +1,122 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="UserMasterPage.master.cs" Inherits="User_Account_UserMasterPage" %>
+
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head id="Head1" runat="server">
+    <meta charset="utf-8" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <asp:PlaceHolder ID="PlaceHolder1" runat="server">      
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:BundleReference ID="BundleReference1" runat="server" Path="~/Content/css" /> 
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+    <style type="text/css">
+        .auto-style2 {
+            width: 219px;
+        }
+        .auto-style3 {
+            width: 586px;
+        }
+    </style>
+</head>
+<body>
+    <form id="Form1" runat="server">
+        <asp:Image ID="Image1" runat="server" Height="313px" ImageUrl="~/Images/Important-Books-on-Cloud-Computing.jpg" style="margin-bottom: 0px" Width="100%" />
+    <header>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p class="site-title">
+                    Welcome to&nbsp; &quot;La Bibliotheque&quot; .... The Library!!!</p>
+            </div>
+            <div class="float-right">
+                <section id="login">
+                    <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled">
+                        
+                        <LoggedInTemplate>
+                            <p>
+                                Hello, <a id="A1" runat="server" class="username" href="~/Account/Manage.aspx" title="Manage your account">
+                                    <asp:LoginName ID="LoginName1" runat="server" CssClass="username" />
+                                </a>!
+                                <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" />
+                            </p>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </section>
+             
+            </div>
+        </div>
+    </header>
+    <div id="body">
+        
+        <section class="content-wrapper main-content clear-fix">
+            <asp:Menu ID="Menu1" runat="server" ForeColor="#284E98" Orientation="Horizontal" RenderingMode="Table" Width="100%" BackColor="#B5C7DE" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" StaticSubMenuIndent="10px">
+                <DynamicHoverStyle BackColor="#284E98" ForeColor="White" />
+                <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                <DynamicMenuStyle BackColor="#B5C7DE" />
+                <DynamicSelectedStyle BackColor="#507CD1" />
+                <DynamicItemTemplate>
+<%# Eval("Text") %>
+                </DynamicItemTemplate>
+                <Items>
+                    <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/User_Account/User_Home.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="Search" Value="Search">
+                        <asp:MenuItem NavigateUrl="~/User_Account/Search_Journal.aspx" Text="Journals" Value="Journals"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/User_Account/Search_Magazine.aspx" Text="Magazines" Value="Magazines"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/User_Account/Search_Video.aspx" Text="Audio" Value="Audio"></asp:MenuItem>
+                    </asp:MenuItem>
+                    <asp:MenuItem Text="FeedBack" Value="FeedBack" NavigateUrl="~/User_Account/User_Feedback.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="About Us" Value="About Us" NavigateUrl="~/User_Account/User_AboutUs.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="Contact Us" Value="Contact Us" NavigateUrl="~/User_Account/User_ContactPage.aspx"></asp:MenuItem>
+                </Items>
+                            <StaticHoverStyle BackColor="#284E98" ForeColor="White" />
+                <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                <StaticSelectedStyle BackColor="#507CD1" />
+                            </asp:Menu>
+            <table style="width:100%; height: 236px;">
+                <tr>
+                    <td class="auto-style2">
+                        <asp:TreeView ID="TreeView1" runat="server">
+                            <Nodes>
+                                <asp:TreeNode Text="Home" Value="Home" NavigateUrl="~/User_Account/User_Home.aspx"></asp:TreeNode>
+                                <asp:TreeNode Text="Search" Value="Search">
+                                    <asp:TreeNode NavigateUrl="~/User_Account/Search_Journal.aspx" Text="Journals" Value="Journals"></asp:TreeNode>
+                                    <asp:TreeNode NavigateUrl="~/User_Account/Search_Magazine.aspx" Text="Magazines" Value="Magazines"></asp:TreeNode>
+                                    <asp:TreeNode NavigateUrl="~/User_Account/Search_Video.aspx" Text="Audio" Value="Audio"></asp:TreeNode>
+                                </asp:TreeNode>
+                                <asp:TreeNode Text="Feedback" Value="Feedback" NavigateUrl="~/User_Account/User_Feedback.aspx">
+                                </asp:TreeNode>
+                                <asp:TreeNode Text="About Us " Value="About Us " NavigateUrl="~/User_Account/User_AboutUs.aspx"></asp:TreeNode>
+                                <asp:TreeNode Text="Contact Us" Value="Contact Us" NavigateUrl="~/User_Account/User_ContactPage.aspx">
+                                </asp:TreeNode>
+                            </Nodes>
+                        </asp:TreeView>
+                    </td>
+                    <td class="auto-style3">
+                        <asp:ContentPlaceHolder runat="server" ID="MainContent" >
+                            
+                        </asp:ContentPlaceHolder>
+                    </td>
+                    <td>&nbsp;
+                         <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+                    </td>
+                </tr>
+            </table>
+            
+        </section>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+        </div>
+    </footer>
+    </form>
+            <div class="float-left">
+                <p>
+                    &copy; <%: DateTime.Now.Year %> 
+                    - La Bibliotheque</p>
+            </div>
+        </body>
+</html>
